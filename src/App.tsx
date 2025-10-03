@@ -1,4 +1,5 @@
 import { Layout } from './components/Layout';
+import { TodoList } from './components/TodoList';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           </div>
         </section>
 
-        <section className="card animate-slide-up">
+        <section className="card animate-slide-up mb-8">
           <h3 className="text-2xl font-bold text-white mb-4">Getting Started</h3>
           <p className="text-slate-300 mb-4">
             This showcase application demonstrates React 19.2.0's powerful new features
@@ -41,6 +42,8 @@ function App() {
             for scalability, reliability, and maintainability.
           </p>
         </section>
+
+        <TodoList />
       </div>
     </Layout>
   );
