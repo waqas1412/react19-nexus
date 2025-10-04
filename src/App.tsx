@@ -1,5 +1,6 @@
 import { Layout } from './components/Layout';
 import { TodoList } from './components/TodoList';
+import { TodoListEnhanced } from './components/TodoListEnhanced';
 
 function App() {
   return (
@@ -43,7 +44,11 @@ function App() {
           </p>
         </section>
 
-        <TodoList />
+        <div className="mb-8">
+          <TodoList />
+        </div>
+
+        <TodoListEnhanced />
       </div>
     </Layout>
   );
