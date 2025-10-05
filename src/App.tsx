@@ -1,6 +1,7 @@
 import { Layout } from './components/Layout';
 import { TodoList } from './components/TodoList';
 import { TodoListEnhanced } from './components/TodoListEnhanced';
+import { Dashboard } from './components/Dashboard';
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
             for scalability, reliability, and maintainability.
           </p>
         </section>
+
+        <div className="card mb-8">
+          <Dashboard />
+        </div>
 
         <div className="mb-8">
           <TodoList />
