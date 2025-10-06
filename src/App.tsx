@@ -1,59 +1,47 @@
 import { Layout } from './components/Layout';
-import { TodoList } from './components/TodoList';
-import { TodoListEnhanced } from './components/TodoListEnhanced';
-import { Dashboard } from './components/Dashboard';
+import { Router } from './components/Router';
+import { HomePage } from './components/pages/HomePage';
+import { DashboardPage } from './components/pages/DashboardPage';
+import { TasksPage } from './components/pages/TasksPage';
+import { AboutPage } from './components/pages/AboutPage';
 
 function App() {
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto">
-        <section className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Welcome to React 19.2.0
-          </h2>
-          <p className="text-xl text-slate-300 mb-8">
-            Explore the latest features and modern development practices
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <span className="px-4 py-2 bg-primary-600/20 border border-primary-500/30 rounded-lg text-primary-300 text-sm font-medium">
-              Actions & useActionState
-            </span>
-            <span className="px-4 py-2 bg-primary-600/20 border border-primary-500/30 rounded-lg text-primary-300 text-sm font-medium">
-              useOptimistic
-            </span>
-            <span className="px-4 py-2 bg-primary-600/20 border border-primary-500/30 rounded-lg text-primary-300 text-sm font-medium">
-              use() API
-            </span>
-            <span className="px-4 py-2 bg-primary-600/20 border border-primary-500/30 rounded-lg text-primary-300 text-sm font-medium">
-              Document Metadata
-            </span>
-            <span className="px-4 py-2 bg-primary-600/20 border border-primary-500/30 rounded-lg text-primary-300 text-sm font-medium">
-              Custom Elements
-            </span>
-          </div>
-        </section>
-
-        <section className="card animate-slide-up mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4">Getting Started</h3>
-          <p className="text-slate-300 mb-4">
-            This showcase application demonstrates React 19.2.0's powerful new features
-            including Actions, optimistic updates, the use() API, and more.
-          </p>
-          <p className="text-slate-300">
-            Each feature is implemented following SOLID principles and modern best practices
-            for scalability, reliability, and maintainability.
-          </p>
-        </section>
-
-        <div className="card mb-8">
-          <Dashboard />
-        </div>
-
-        <div className="mb-8">
-          <TodoList />
-        </div>
-
-        <TodoListEnhanced />
+      <div className="max-w-6xl mx-auto">
+        <Router
+          defaultRoute="home"
+          routes={[
+            {
+              path: 'home',
+              title: 'Home',
+              description: 'React 19.2.0 showcase - explore the latest features',
+              keywords: 'React 19, React 19.2, Actions, useOptimistic, use API',
+              component: <HomePage />,
+            },
+            {
+              path: 'dashboard',
+              title: 'Dashboard',
+              description: 'Interactive dashboard with Suspense and use() API',
+              keywords: 'React Suspense, use hook, async data fetching',
+              component: <DashboardPage />,
+            },
+            {
+              path: 'tasks',
+              title: 'Tasks',
+              description: 'Task management with Actions and optimistic updates',
+              keywords: 'useActionState, useOptimistic, React forms',
+              component: <TasksPage />,
+            },
+            {
+              path: 'about',
+              title: 'About',
+              description: 'Learn about this React 19 showcase application',
+              keywords: 'React 19 features, modern React, best practices',
+              component: <AboutPage />,
+            },
+          ]}
+        />
       </div>
     </Layout>
   );
