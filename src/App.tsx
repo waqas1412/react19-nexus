@@ -4,6 +4,7 @@ import { HomePage } from './components/pages/HomePage';
 import { DashboardPage } from './components/pages/DashboardPage';
 import { TasksPage } from './components/pages/TasksPage';
 import { AboutPage } from './components/pages/AboutPage';
+import { ResourcesPage } from './components/pages/ResourcesPage';
 
 function App() {
   return (
@@ -39,6 +40,13 @@ function App() {
               description: 'Learn about this React 19 showcase application',
               keywords: 'React 19 features, modern React, best practices',
               component: <AboutPage />,
+            },
+            {
+              path: 'resources',
+              title: 'Resources',
+              description: 'Resource preloading with preinit, preload, preconnect APIs',
+              keywords: 'preinit, preload, preconnect, prefetchDNS, resource hints',
+              component: <ResourcesPage />,
             },
           ]}
         />
