@@ -5,6 +5,7 @@ import { DashboardPage } from './components/pages/DashboardPage';
 import { TasksPage } from './components/pages/TasksPage';
 import { AboutPage } from './components/pages/AboutPage';
 import { ResourcesPage } from './components/pages/ResourcesPage';
+import { SSRPage } from './components/pages/SSRPage';
 
 function App() {
   return (
@@ -47,6 +48,13 @@ function App() {
               description: 'Resource preloading with preinit, preload, preconnect APIs',
               keywords: 'preinit, preload, preconnect, prefetchDNS, resource hints',
               component: <ResourcesPage />,
+            },
+            {
+              path: 'ssr',
+              title: 'SSR Features',
+              description: 'Stylesheet precedence and async script handling',
+              keywords: 'stylesheet precedence, async scripts, SSR, streaming',
+              component: <SSRPage />,
             },
           ]}
         />
