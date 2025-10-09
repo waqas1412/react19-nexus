@@ -6,6 +6,7 @@ import { TasksPage } from './components/pages/TasksPage';
 import { AboutPage } from './components/pages/AboutPage';
 import { ResourcesPage } from './components/pages/ResourcesPage';
 import { SSRPage } from './components/pages/SSRPage';
+import { CustomElementsPage } from './components/pages/CustomElementsPage';
 
 function App() {
   return (
@@ -55,6 +56,13 @@ function App() {
               description: 'Stylesheet precedence and async script handling',
               keywords: 'stylesheet precedence, async scripts, SSR, streaming',
               component: <SSRPage />,
+            },
+            {
+              path: 'custom-elements',
+              title: 'Custom Elements',
+              description: 'Web Components integration with React 19',
+              keywords: 'custom elements, web components, shadow DOM, interop',
+              component: <CustomElementsPage />,
             },
           ]}
         />
