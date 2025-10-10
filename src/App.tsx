@@ -7,6 +7,7 @@ import { AboutPage } from './components/pages/AboutPage';
 import { ResourcesPage } from './components/pages/ResourcesPage';
 import { SSRPage } from './components/pages/SSRPage';
 import { CustomElementsPage } from './components/pages/CustomElementsPage';
+import { ActivityPage } from './components/pages/ActivityPage';
 
 function App() {
   return (
@@ -63,6 +64,13 @@ function App() {
               description: 'Web Components integration with React 19',
               keywords: 'custom elements, web components, shadow DOM, interop',
               component: <CustomElementsPage />,
+            },
+            {
+              path: 'activity',
+              title: 'Activity',
+              description: 'View transitions with warm/hidden states',
+              keywords: 'Activity component, view transitions, warm state, navigation',
+              component: <ActivityPage />,
             },
           ]}
         />
