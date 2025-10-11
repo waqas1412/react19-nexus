@@ -8,6 +8,7 @@ import { ResourcesPage } from './components/pages/ResourcesPage';
 import { SSRPage } from './components/pages/SSRPage';
 import { CustomElementsPage } from './components/pages/CustomElementsPage';
 import { ActivityPage } from './components/pages/ActivityPage';
+import { UseEffectEventPage } from './components/pages/UseEffectEventPage';
 
 function App() {
   return (
@@ -71,6 +72,13 @@ function App() {
               description: 'View transitions with warm/hidden states',
               keywords: 'Activity component, view transitions, warm state, navigation',
               component: <ActivityPage />,
+            },
+            {
+              path: 'use-effect-event',
+              title: 'useEffectEvent',
+              description: 'Stable event handlers without stale closures',
+              keywords: 'useEffectEvent, event handlers, hooks, performance',
+              component: <UseEffectEventPage />,
             },
           ]}
         />
