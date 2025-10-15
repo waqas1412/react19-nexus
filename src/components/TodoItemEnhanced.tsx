@@ -1,4 +1,4 @@
-import { Todo } from '../types/todo';
+import type { Todo } from '../types/todo';
 import { cn } from '../lib/utils';
 
 interface TodoItemEnhancedProps {

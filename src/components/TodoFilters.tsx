@@ -1,4 +1,4 @@
-import { TodoFilter } from '../types/todo';
+import type { TodoFilter } from '../types/todo';
 import { cn } from '../lib/utils';
 
 interface TodoFiltersProps {

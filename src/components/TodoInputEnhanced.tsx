@@ -11,7 +11,7 @@ interface FormState {
 
 export function TodoInputEnhanced({ onAdd }: TodoInputEnhancedProps) {
   const [state, formAction, isPending] = useActionState(
-    async (prevState: FormState, formData: FormData): Promise<FormState> => {
+    async (_prevState: FormState, formData: FormData): Promise<FormState> => {
       const text = formData.get('todo') as string;
       const trimmedText = text?.trim();
 
@@ -22,7 +22,7 @@ export function TodoInputEnhanced({ onAdd }: TodoInputEnhancedProps) {
       try {
         await onAdd(trimmedText);
         return { success: true };
-      } catch (error) {
+      } catch {
         return { error: 'Failed to add task' };
       }
     },

@@ -226,6 +226,7 @@ function WithUseEffectEvent() {
     }, 2000);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // No dependencies needed!
 
   return (

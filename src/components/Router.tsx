@@ -1,7 +1,8 @@
-import { useState, ReactNode } from 'react';
+import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { DocumentMeta } from './DocumentMeta';
 
-export type Route = 'home' | 'dashboard' | 'tasks' | 'about';
+export type Route = 'home' | 'dashboard' | 'tasks' | 'about' | 'resources' | 'ssr' | 'custom-elements' | 'activity' | 'use-effect-event';
 
 interface RouteConfig {
   path: Route;

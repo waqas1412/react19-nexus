@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Todo, TodoFilter } from '../types/todo';
+import type { Todo, TodoFilter } from '../types/todo';
 import { TodoItem } from './TodoItem';
 import { TodoInput } from './TodoInput';
 import { TodoFilters } from './TodoFilters';

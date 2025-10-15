@@ -11,6 +11,7 @@ import { useCallback, useLayoutEffect, useRef } from 'react';
  * 
  * Note: This is a polyfill implementation. React 19.2 provides this natively.
  */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function useEffectEvent<T extends (...args: any[]) => any>(
   handler: T
 ): T {

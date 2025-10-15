@@ -1,4 +1,4 @@
-import { Todo } from '../types/todo';
+import type { Todo } from '../types/todo';
 
 /**
  * Simulates an async operation (e.g., API call) for adding a todo

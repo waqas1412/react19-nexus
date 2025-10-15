@@ -9,6 +9,7 @@ import { useEffect } from 'react';
  */
 
 // TypeScript declaration for custom element
+/* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -16,6 +17,7 @@ declare global {
     }
   }
 }
+/* eslint-enable @typescript-eslint/no-namespace */
 
 export function CustomElements() {
   useEffect(() => {
@@ -51,6 +53,7 @@ export function CustomElements() {
 
           <div className="flex justify-center mb-6">
             {/* Custom element - React 19 handles it natively */}
+            {/* @ts-expect-error - Custom element not in JSX types */}
             <x-clock />
           </div>
 
