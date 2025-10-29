@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0f172a;
-
+  
+  color-scheme: dark;
+  color: #ffffff;
+  background: #0a0a0f;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,33 +21,107 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a24 100%);
+  position: relative;
+  overflow-x: hidden;
 }
 
+/* Animated background grid */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Glassmorphism card */
 @layer components {
-  .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl;
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   }
-
-  .btn-secondary {
-    @apply bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2;
+  
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
   }
-
-  .card {
-    @apply bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-700;
+  
+  .glass-card-hover:hover {
+    @apply bg-white/10 border-cyan-400/30 scale-[1.02];
+    box-shadow: 
+      0 12px 48px 0 rgba(0, 240, 255, 0.2),
+      inset 0 0 0 1px rgba(0, 240, 255, 0.1);
+  }
+  
+  /* Neon button */
+  .btn-neon {
+    @apply relative px-6 py-3 rounded-lg font-semibold text-white overflow-hidden;
+    @apply transition-all duration-300;
+    background: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 100%);
+  }
+  
+  .btn-neon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-neon:hover::before {
+    left: 100%;
+  }
+  
+  .btn-neon:hover {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  /* Neon text */
+  .text-neon {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #00f0ff 0%, #ff006e 100%);
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  }
+  
+  /* Glow effect */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  }
+  
+  .glow-pink {
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
   }
 }
 
-/* Motion animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-up {
+/* Animations */
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -58,7 +132,7 @@ body {
   }
 }
 
-@keyframes slide-in-right {
+@keyframes slideIn {
   from {
     opacity: 0;
     transform: translateX(-20px);
@@ -69,34 +143,66 @@ body {
   }
 }
 
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
+@keyframes pulse {
+  0%, 100% {
     opacity: 1;
-    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
 .animate-fade-in {
-  animation: fade-in 0.5s ease-out;
+  animation: fadeIn 0.6s ease-out;
 }
 
-.animate-slide-up {
-  animation: slide-up 0.6s ease-out;
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out;
 }
 
-.animate-slide-in-right {
-  animation: slide-in-right 0.4s ease-out;
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.animate-scale-in {
-  animation: scale-in 0.3s ease-out;
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
-/* Reduced motion for accessibility */
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00f0ff 0%, #ff006e 100%);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid #00f0ff;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -107,24 +213,13 @@ body {
   }
 }
 
-/* Focus visible for keyboard navigation */
-*:focus-visible {
-  outline: 2px solid #6366f1;
-  outline-offset: 2px;
+/* Selection */
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: #ffffff;
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .card {
-    border-width: 2px;
-  }
-  
-  button {
-    border: 2px solid currentColor;
-  }
-}
-
-/* Screen reader only utility */
+/* Screen reader only */
 .sr-only {
   position: absolute;
   width: 1px;

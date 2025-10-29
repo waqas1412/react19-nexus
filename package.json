@@ -1,7 +1,8 @@
 {
-  "name": "react19-showcase",
+  "name": "react19-nexus",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Production-grade React 19 micro-frontend architecture with futuristic UI",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,6 +18,7 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.19",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "tailwind-merge": "^3.3.1"
