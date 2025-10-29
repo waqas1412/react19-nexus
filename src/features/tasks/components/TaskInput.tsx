@@ -29,7 +29,7 @@ export function TaskInput({ onTaskCreated, createAction }: TaskInputProps) {
         const task = await createAction(title.trim());
         onTaskCreated(task);
         return { success: true };
-      } catch (error) {
+      } catch {
         return { error: 'Failed to create task' };
       }
     },
